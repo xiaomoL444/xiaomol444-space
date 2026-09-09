@@ -11,12 +11,14 @@ const home = ref<HTMLElement | null>(null)
 const background = ref<HTMLVideoElement | null>(null)
 const music = ref<HTMLAudioElement | null>(null)
 const isMusicPlaying = ref(false)
-const musicRequested = ref(false)
+const musicRequested = ref(true)
+const musicAwaitingInteraction = ref(false)
 const musicFailed = ref(false)
 const videoFailed = ref(false)
 const year = new Date().getFullYear()
 let motionPreference: MediaQueryList | undefined
 let musicRequest = 0
+let musicAutoplayEnabled = false
 
 useGlassGlow(home)
 
@@ -34,21 +36,54 @@ async function playMusic() {
   if (!audio || musicFailed.value) return
   const request = ++musicRequest
   musicRequested.value = true
+  musicAwaitingInteraction.value = false
   try {
     await audio.play()
-    if (request === musicRequest) isMusicPlaying.value = !audio.paused
-  } catch {
     if (request !== musicRequest) return
-    // Audible autoplay may require the visitor to press the music button first.
+    isMusicPlaying.value = !audio.paused
+    if (isMusicPlaying.value) stopMusicAutoplay()
+  } catch (error) {
+    if (request !== musicRequest) return
     musicRequested.value = false
     isMusicPlaying.value = false
+    if (error instanceof Error && error.name === 'NotAllowedError') {
+      musicAwaitingInteraction.value = true
+      enableMusicAutoplay()
+    } else {
+      stopMusicAutoplay()
+    }
   }
+}
+
+function resumeMusicOnInteraction(event: Event) {
+  if (!musicAutoplayEnabled || musicFailed.value || isMusicPlaying.value) return
+  // Let the music button handle its own click, including keyboard activation.
+  if (event.target instanceof Element && event.target.closest('.music-control')) return
+  if (event instanceof KeyboardEvent && (event.repeat || event.key === 'Escape' || event.ctrlKey || event.altKey || event.metaKey)) return
+  void playMusic()
+}
+
+function enableMusicAutoplay() {
+  musicAutoplayEnabled = true
+  document.addEventListener('click', resumeMusicOnInteraction)
+  document.addEventListener('keydown', resumeMusicOnInteraction)
+}
+
+function stopMusicAutoplay() {
+  musicAutoplayEnabled = false
+  musicAwaitingInteraction.value = false
+  document.removeEventListener('click', resumeMusicOnInteraction)
+  document.removeEventListener('keydown', resumeMusicOnInteraction)
 }
 
 function pauseMusic() {
   musicRequest++
+  stopMusicAutoplay()
   musicRequested.value = false
-  music.value?.pause()
+  if (music.value) {
+    music.value.autoplay = false
+    music.value.pause()
+  }
   isMusicPlaying.value = false
 }
 
@@ -60,6 +95,7 @@ function toggleMusic() {
 function syncMusicState() {
   isMusicPlaying.value = !!music.value && !music.value.paused
   musicRequested.value = isMusicPlaying.value
+  if (isMusicPlaying.value) stopMusicAutoplay()
 }
 
 function onMusicError() {
@@ -76,6 +112,7 @@ onMounted(() => {
   motionPreference.addEventListener('change', respectMotionPreference)
   if (!motionPreference.matches) void playBackground()
   if (music.value) music.value.volume = 0.35
+  enableMusicAutoplay()
   void playMusic()
 })
 
@@ -91,8 +128,9 @@ onBeforeUnmount(() => {
     <audio
       ref="music"
       :src="musicUrl"
+      autoplay
       loop
-      preload="metadata"
+      preload="auto"
       @play="syncMusicState"
       @pause="syncMusicState"
       @ended="syncMusicState"
@@ -154,7 +192,7 @@ onBeforeUnmount(() => {
         @click="toggleMusic"
       >
         <span class="music-bars" aria-hidden="true"><i /><i /><i /><i /></span>
-        <span class="music-label">{{ musicFailed ? '音乐暂不可用' : isMusicPlaying ? '正在播放' : musicRequested ? '音乐加载中' : '播放音乐' }}</span>
+        <span class="music-label">{{ musicFailed ? '音乐暂不可用' : isMusicPlaying ? '正在播放' : musicRequested ? '音乐加载中' : musicAwaitingInteraction ? '点击开启音乐' : '播放音乐' }}</span>
         <span class="music-separator" aria-hidden="true" />
         <svg v-if="musicRequested" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M9 5v14M15 5v14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
