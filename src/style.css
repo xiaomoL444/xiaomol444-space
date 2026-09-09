@@ -1,0 +1,164 @@
+:root {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff9ff;
+  background: #1c1029;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  --text-muted: #ddd2e5;
+  --glass-border: rgb(255 237 255 / 28%);
+  --glass-blur: 20px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; }
+button { font: inherit; }
+button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+::selection { background: #b888c4; color: #fff; }
+
+.home {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: max(32px, env(safe-area-inset-top)) max(48px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(48px, env(safe-area-inset-left));
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+  background: #261530;
+}
+
+.backdrop-media {
+  position: absolute;
+  inset: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  object-fit: cover;
+  object-position: center;
+  filter: blur(4px);
+}
+
+.backdrop-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(15 8 25 / 30%), rgb(24 9 30 / 20%) 42%, rgb(15 8 25 / 56%)),
+    radial-gradient(ellipse at center, transparent 10%, rgb(15 6 25 / 26%) 100%);
+}
+
+.site-header, .site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark { display: flex; align-items: center; gap: 11px; font-size: 1.0625rem; font-weight: 600; letter-spacing: -.03em; }
+.sparkle { color: #efd8f7; }
+.wordmark-dot { color: #edb3df; }
+.header-caption { font-size: .75rem; letter-spacing: .22em; color: var(--text-muted); }
+
+.main-content {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 70px 0;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgb(255 246 255 / 15%), rgb(235 210 255 / 5%) 46%, rgb(255 239 255 / 10%));
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(135%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(135%);
+  box-shadow: 0 24px 80px -20px rgb(10 2 20 / 48%), inset 0 1px 1px rgb(255 255 255 / 38%), inset 0 -1px 1px rgb(255 230 255 / 12%);
+}
+
+.profile {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 416px);
+  padding: 45px 30px 28px;
+  border-radius: 36px;
+  text-align: center;
+  animation: arrive 950ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.profile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgb(255 255 255 / 24%), transparent 31%, transparent 72%, rgb(255 221 255 / 13%));
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.profile-shine {
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 310px;
+  height: 240px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(ellipse, rgb(247 205 253 / 13%), transparent 70%);
+}
+
+.avatar-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 152px;
+  height: 152px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgb(255 255 255 / 33%), rgb(255 255 255 / 4%) 55%, rgb(231 196 255 / 24%));
+  border: 1px solid rgb(255 248 255 / 50%);
+  box-shadow: inset 0 2px 3px rgb(255 255 255 / 35%), inset 0 -3px 5px rgb(239 183 247 / 12%), 0 12px 35px rgb(28 9 40 / 20%);
+}
+
+.avatar { display: block; width: 128px; height: 128px; object-fit: cover; border-radius: 50%; border: 1px solid rgb(255 255 255 / 60%); }
+.avatar-sparkle { position: absolute; right: 0; bottom: 5px; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #c1a6ca; border-radius: 50%; background: #75557f; color: #ffefff; font-size: 1rem; box-shadow: 0 3px 10px rgb(25 5 30 / 20%); }
+.eyebrow { margin: 0 0 10px; font-size: .75rem; font-weight: 500; letter-spacing: .3em; color: var(--text-muted); }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.2; text-shadow: 0 2px 14px rgb(29 8 36 / 12%); }
+h1 span { color: #efbce9; }
+.welcome { margin: 17px 0 0; font-size: 1rem; line-height: 1.7; letter-spacing: .12em; color: #eee1f2; }
+.profile-detail { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 30px; color: #e9d6ee; font-size: 1rem; }
+.profile-detail span { width: 37px; height: 1px; background: linear-gradient(90deg, transparent, rgb(255 233 255 / 36%)); }
+.profile-detail span:last-child { transform: rotate(180deg); }
+
+.copyright { font-size: .8125rem; color: var(--text-muted); letter-spacing: .025em; }
+.background-control { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 17px; border-radius: 999px; color: #fff5ff; font-size: .875rem; cursor: pointer; transition: background 180ms ease, border-color 180ms ease; }
+.background-control:hover:not(:disabled) { background-color: rgb(255 236 255 / 12%); border-color: rgb(255 237 255 / 52%); }
+.background-control:disabled { cursor: default; opacity: .7; }
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .home { padding: max(25px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(22px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
+  .header-caption { display: none; }
+  .main-content { padding: 48px 0; }
+  .profile { padding: 37px 20px 25px; border-radius: 30px; }
+  .backdrop-media { object-position: 35% center; }
+  .site-footer { gap: 12px; flex-wrap: wrap; }
+  .copyright { font-size: .75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: linear-gradient(135deg, rgb(71 44 80 / 94%), rgb(40 23 54 / 94%)); }
+}
