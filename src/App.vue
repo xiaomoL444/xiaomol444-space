@@ -1,27 +1,70 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import avatarUrl from '../assets/avatar.jpg'
+import avatarFrameUrl from '../assets/avatarFrame.png'
 import backgroundUrl from '../assets/background/home-background.mp4'
 import posterUrl from '../assets/background/home-poster.jpg'
+import musicUrl from '../assets/music/theme.mp3'
+import { useGlassGlow } from './composables/useGlassGlow'
 
+const home = ref<HTMLElement | null>(null)
 const background = ref<HTMLVideoElement | null>(null)
-const isPlaying = ref(false)
+const music = ref<HTMLAudioElement | null>(null)
+const isMusicPlaying = ref(false)
+const musicRequested = ref(false)
+const musicFailed = ref(false)
 const videoFailed = ref(false)
 const year = new Date().getFullYear()
 let motionPreference: MediaQueryList | undefined
+let musicRequest = 0
+
+useGlassGlow(home)
 
 async function playBackground() {
   if (!background.value || videoFailed.value) return
   try {
     await background.value.play()
   } catch {
-    isPlaying.value = false
+    // Keep the poster visible when automatic video playback is unavailable.
   }
 }
 
-function toggleBackground() {
-  if (isPlaying.value) background.value?.pause()
-  else void playBackground()
+async function playMusic() {
+  const audio = music.value
+  if (!audio || musicFailed.value) return
+  const request = ++musicRequest
+  musicRequested.value = true
+  try {
+    await audio.play()
+    if (request === musicRequest) isMusicPlaying.value = !audio.paused
+  } catch {
+    if (request !== musicRequest) return
+    // Audible autoplay may require the visitor to press the music button first.
+    musicRequested.value = false
+    isMusicPlaying.value = false
+  }
+}
+
+function pauseMusic() {
+  musicRequest++
+  musicRequested.value = false
+  music.value?.pause()
+  isMusicPlaying.value = false
+}
+
+function toggleMusic() {
+  if (musicRequested.value || isMusicPlaying.value) pauseMusic()
+  else void playMusic()
+}
+
+function syncMusicState() {
+  isMusicPlaying.value = !!music.value && !music.value.paused
+  musicRequested.value = isMusicPlaying.value
+}
+
+function onMusicError() {
+  pauseMusic()
+  musicFailed.value = true
 }
 
 function respectMotionPreference() {
@@ -32,31 +75,44 @@ onMounted(() => {
   motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
   motionPreference.addEventListener('change', respectMotionPreference)
   if (!motionPreference.matches) void playBackground()
+  if (music.value) music.value.volume = 0.35
+  void playMusic()
 })
 
 onBeforeUnmount(() => {
+  pauseMusic()
+  background.value?.pause()
   motionPreference?.removeEventListener('change', respectMotionPreference)
 })
 </script>
 
 <template>
-  <div class="home">
-    <div class="backdrop" aria-hidden="true">
-      <img class="backdrop-media" :src="posterUrl" alt="" />
+  <div ref="home" class="home">
+    <audio
+      ref="music"
+      :src="musicUrl"
+      loop
+      preload="metadata"
+      @play="syncMusicState"
+      @pause="syncMusicState"
+      @ended="syncMusicState"
+      @error="onMusicError"
+    />
+    <div class="backdrop" aria-hidden="true" @dragstart.prevent @contextmenu.prevent>
+      <img class="backdrop-media" :src="posterUrl" alt="" draggable="false" />
       <video
         v-show="!videoFailed"
         ref="background"
         class="backdrop-media"
         :src="backgroundUrl"
         :poster="posterUrl"
+        draggable="false"
         muted
         loop
         playsinline
         preload="metadata"
         disablepictureinpicture
-        @play="isPlaying = true"
-        @pause="isPlaying = false"
-        @error="videoFailed = true; isPlaying = false"
+        @error="videoFailed = true"
       />
       <div class="backdrop-shade" />
     </div>
@@ -72,15 +128,15 @@ onBeforeUnmount(() => {
     </header>
 
     <main class="main-content">
-      <section class="profile glass" aria-labelledby="profile-name">
+      <section class="profile glass" data-glass aria-labelledby="profile-name">
         <div class="profile-shine" aria-hidden="true" />
-        <div class="avatar-shell">
-          <img class="avatar" :src="avatarUrl" alt="xiaomol444 的头像" width="128" height="128" fetchpriority="high" />
-          <span class="avatar-sparkle" aria-hidden="true">✦</span>
+        <div class="avatar-shell" @dragstart.prevent @contextmenu.prevent>
+          <img class="avatar" :src="avatarUrl" alt="xiaomol444 的头像" width="128" height="128" fetchpriority="high" draggable="false" />
+          <img class="avatar-frame" :src="avatarFrameUrl" alt="" aria-hidden="true" width="163" height="150" draggable="false" />
         </div>
         <p class="eyebrow">HELLO, I'M</p>
         <h1 id="profile-name">xiaomol444<span>.</span></h1>
-        <p class="welcome">欢迎来到我的小小世界</p>
+        <p class="welcome">愿你今晚得享安眠</p>
         <div class="profile-detail" aria-hidden="true"><span />✧<span /></div>
       </section>
     </main>
@@ -88,24 +144,25 @@ onBeforeUnmount(() => {
     <footer class="site-footer">
       <span class="copyright">© {{ year }} xiaomol444</span>
       <button
-        class="background-control glass"
+        class="music-control glass"
+        data-glass
         type="button"
-        :disabled="videoFailed"
-        :aria-label="videoFailed ? '背景视频暂时不可用' : isPlaying ? '暂停背景视频' : '播放背景视频'"
-        @click="toggleBackground"
+        :class="{ 'is-playing': isMusicPlaying }"
+        :disabled="musicFailed"
+        :aria-label="musicFailed ? '背景音乐暂时不可用' : musicRequested ? '暂停背景音乐' : '播放背景音乐'"
+        :aria-pressed="isMusicPlaying"
+        @click="toggleMusic"
       >
-        <svg v-if="isPlaying" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <span class="music-bars" aria-hidden="true"><i /><i /><i /><i /></span>
+        <span class="music-label">{{ musicFailed ? '音乐暂不可用' : isMusicPlaying ? '正在播放' : musicRequested ? '音乐加载中' : '播放音乐' }}</span>
+        <span class="music-separator" aria-hidden="true" />
+        <svg v-if="musicRequested" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M9 5v14M15 5v14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
         </svg>
         <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="m8 5 11 7-11 7V5Z" fill="currentColor" />
         </svg>
-        <span>{{ videoFailed ? '静态背景' : isPlaying ? '暂停背景' : '播放背景' }}</span>
       </button>
     </footer>
   </div>
 </template>
-
-<style>
-@import './style.css';
-</style>
