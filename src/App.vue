@@ -4,12 +4,19 @@ import avatarUrl from '../assets/avatar.jpg'
 import avatarFrameUrl from '../assets/avatarFrame.png'
 import backgroundUrl from '../assets/background/home-background.mp4'
 import posterUrl from '../assets/background/home-poster.jpg'
+import loadingUrl from '../assets/background/Loading.png'
 import musicUrl from '../assets/music/theme.mp3'
+import batUrl from '../assets/entrance-bat-simple.png'
+import EntranceIntro from './components/EntranceIntro.vue'
+import { useEntranceLoading } from './composables/useEntranceLoading'
 import { useGlassGlow } from './composables/useGlassGlow'
 
 const home = ref<HTMLElement | null>(null)
 const background = ref<HTMLVideoElement | null>(null)
 const music = ref<HTMLAudioElement | null>(null)
+const introVisible = ref(true)
+const homeRevealed = ref(false)
+const homeInteractive = ref(false)
 const isMusicPlaying = ref(false)
 const musicRequested = ref(true)
 const musicAwaitingInteraction = ref(false)
@@ -21,6 +28,15 @@ let musicRequest = 0
 let musicAutoplayEnabled = false
 
 useGlassGlow(home)
+const { progress: loadingProgress, ready: assetsReady, unavailable: unavailableAssets } = useEntranceLoading(
+  [avatarUrl, avatarFrameUrl, posterUrl, batUrl, loadingUrl],
+  () => [background.value, music.value],
+)
+
+function revealHome() {
+  homeRevealed.value = true
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#261530')
+}
 
 async function playBackground() {
   if (!background.value || videoFailed.value) return
@@ -124,7 +140,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="home" class="home">
+  <EntranceIntro
+    v-if="introVisible"
+    :progress="loadingProgress"
+    :ready="assetsReady"
+    :unavailable="unavailableAssets"
+    @reveal="revealHome"
+    @entered="homeInteractive = true"
+    @complete="introVisible = false"
+  />
+  <div ref="home" class="home" :class="{ 'home--waiting': !homeRevealed, 'home--intro-active': introVisible }" :inert="!homeInteractive" :aria-hidden="!homeInteractive || undefined">
     <audio
       ref="music"
       :src="musicUrl"
@@ -148,7 +173,7 @@ onBeforeUnmount(() => {
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         disablepictureinpicture
         @error="videoFailed = true"
       />

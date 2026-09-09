@@ -36,6 +36,9 @@ button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
   user-select: none;
 }
 
+.home--waiting { visibility: hidden; }
+.home--intro-active .profile { animation-play-state: paused; }
+
 .backdrop {
   position: fixed;
   inset: 0;
@@ -95,7 +98,7 @@ button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
   padding: 45px 30px 28px;
   border-radius: 36px;
   text-align: center;
-  animation: arrive 950ms cubic-bezier(.2, .7, .2, 1) both;
+  animation: arrive 450ms cubic-bezier(.2, .7, .2, 1) both;
 }
 
 [data-glass] {
