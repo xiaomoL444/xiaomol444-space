@@ -8,8 +8,12 @@ export const routes: RouteRecordRaw[] = [
   ...homeSections.map((section) => ({
     path: section.path,
     name: section.id,
-    component: SectionView,
-    props: { title: section.title, englishTitle: section.englishTitle },
+    component: section.id === 'miliastra-wonderland'
+      ? () => import('../views/MiliastraView.vue')
+      : SectionView,
+    props: section.id === 'miliastra-wonderland'
+      ? false
+      : { title: section.title, englishTitle: section.englishTitle },
     meta: { title: section.title },
   })),
   { path: '/:pathMatch(.*)*', redirect: '/' },
