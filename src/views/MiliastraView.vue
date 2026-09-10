@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, reactive, shallowRef } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, shallowRef } from 'vue'
 import { RouterLink } from 'vue-router'
 import ExhibitCover from '../components/ExhibitCover.vue'
 import ExhibitDescription from '../components/ExhibitDescription.vue'
@@ -9,6 +9,7 @@ import { fetchAssets, fetchStages, type Asset, type Stage, type UgcCollection } 
 type Exhibit = 'stages' | 'assets'
 type CollectionState<T> = { data: UgcCollection<T> | null; loading: boolean; error: string; revision: number }
 const stages = reactive<CollectionState<Stage>>({ data: null, loading: true, error: '', revision: 0 })
+const displayedStages = computed(() => [...(stages.data?.items ?? [])].reverse())
 const assets = reactive<CollectionState<Asset>>({ data: null, loading: true, error: '', revision: 0 })
 const preview = shallowRef<{ kind: 'stage' | 'asset'; item: Stage | Asset } | null>(null)
 const decorationUrl = `${import.meta.env.BASE_URL}yuexia-kit/`
@@ -115,7 +116,7 @@ onBeforeUnmount(() => { controllers.stages?.abort(); controllers.assets?.abort()
       </div>
 
       <div v-if="collection.id === 'stages' && stages.data?.items.length" class="exhibit-grid" :aria-busy="stages.loading">
-        <article v-for="stage in stages.data.items" :key="stage.id" class="exhibit-card glass" :aria-labelledby="`stage-${stage.id}`" @click="openCardPreview($event, 'stage', stage)">
+        <article v-for="stage in displayedStages" :key="stage.id" class="exhibit-card glass" :aria-labelledby="`stage-${stage.id}`" @click="openCardPreview($event, 'stage', stage)">
           <button class="preview-cover-button" type="button" :aria-label="`预览奇域：${stage.name}`" aria-haspopup="dialog" @click="preview = { kind: 'stage', item: stage }">
           <ExhibitCover :key="stages.revision" :src="stage.coverUrl" :name="stage.name">
             <span v-if="stage.playerCount" class="cover-badge">{{ stage.playerCount }} 人游玩</span>
