@@ -29,7 +29,7 @@ const decorationUrl = `${import.meta.env.BASE_URL}yuexia-kit/`
 
     <div class="home-sections">
       <template v-for="(section, index) in homeSections" :key="section.id">
-        <RouterLink class="section-card glass" :to="section.path" data-glass :aria-labelledby="`${section.id}-title`">
+        <RouterLink class="section-card glass" :to="section.path" data-glass :aria-labelledby="`${section.id}-title`" draggable="false" @dragstart.prevent>
           <div class="section-ornaments" aria-hidden="true">
             <span class="section-inset" />
             <span class="section-pattern" :style="{ backgroundImage: `url(${decorationUrl}svg/pattern-fine-diamonds.svg)` }" />

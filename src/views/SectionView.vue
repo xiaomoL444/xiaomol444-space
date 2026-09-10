@@ -7,7 +7,7 @@ const decorationUrl = `${import.meta.env.BASE_URL}yuexia-kit/`
 
 <template>
   <div class="detail-page">
-    <RouterLink to="/" class="back-link glass" data-glass>
+    <RouterLink to="/" class="back-link glass" data-glass draggable="false" @dragstart.prevent>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="m10 5-7 7 7 7M3 12h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>

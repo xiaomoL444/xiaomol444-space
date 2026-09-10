@@ -65,7 +65,7 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <dialog ref="dialog" class="preview-dialog" aria-labelledby="preview-title" @close="emit('close')" @cancel.prevent="close" @pointerdown="onBackdropPointerDown" @click="onBackdropClick">
+    <dialog ref="dialog" class="preview-dialog" aria-labelledby="preview-title" @close="emit('close')" @cancel.prevent="close" @pointerdown="onBackdropPointerDown" @click="onBackdropClick" @dragstart.prevent>
       <header class="preview-header">
         <div><p class="preview-kind">{{ kindLabel }}预览</p><h2 id="preview-title">{{ item.name }}</h2></div>
         <button class="close-button" type="button" autofocus aria-label="关闭预览" @click="close">
@@ -78,8 +78,8 @@ onBeforeUnmount(() => {
             <span>{{ activeMedia ? '这份预览暂时无法加载' : '暂无预览图片' }}</span>
             <span v-if="media.length > 1">可以查看其他图片或视频</span>
           </div>
-          <video v-else-if="activeMedia.type === 'video'" :key="activeMedia.url" ref="video" class="main-media" :src="activeMedia.url" :poster="item.videoPosterUrl || item.coverUrl" controls playsinline preload="metadata" :aria-label="`${item.name}的预览视频`" @error="failMedia(activeMedia.url)" />
-          <img v-else :key="activeMedia.url" class="main-media" :src="activeMedia.url" :alt="`${item.name} · ${activeMedia.label}`" referrerpolicy="no-referrer" @error="failMedia(activeMedia.url)" />
+          <video v-else-if="activeMedia.type === 'video'" :key="activeMedia.url" ref="video" class="main-media" :src="activeMedia.url" :poster="item.videoPosterUrl || item.coverUrl" draggable="false" controls playsinline preload="metadata" :aria-label="`${item.name}的预览视频`" @error="failMedia(activeMedia.url)" />
+          <img v-else :key="activeMedia.url" class="main-media" :src="activeMedia.url" :alt="`${item.name} · ${activeMedia.label}`" draggable="false" referrerpolicy="no-referrer" @error="failMedia(activeMedia.url)" />
         </div>
         <div v-if="media.length > 1" class="media-navigation">
           <button class="media-step" type="button" aria-label="上一份预览" @click="stepMedia(-1)">‹</button>
@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
         </div>
         <div v-if="media.length > 1" class="media-thumbnails" role="group" aria-label="选择预览内容">
           <button v-for="(entry, index) in media" :key="entry.url" class="media-thumbnail" type="button" :aria-pressed="index === activeIndex" :aria-label="`查看${entry.label}`" @click="selectMedia(index)">
-            <img v-if="entry.thumbnail && !failedMedia.has(entry.thumbnail)" :src="entry.thumbnail" alt="" loading="lazy" referrerpolicy="no-referrer" @error="failMedia(entry.thumbnail)" />
+            <img v-if="entry.thumbnail && !failedMedia.has(entry.thumbnail)" :src="entry.thumbnail" alt="" draggable="false" loading="lazy" referrerpolicy="no-referrer" @error="failMedia(entry.thumbnail)" />
             <span>{{ entry.type === 'video' ? '▷ ' : '' }}{{ entry.label }}</span>
           </button>
         </div>
@@ -113,6 +113,8 @@ onBeforeUnmount(() => {
 <style scoped>
 .preview-dialog { width: min(920px, calc(100% - 40px)); max-width: none; max-height: 90dvh; margin: auto; padding: 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: none; border: 1px solid var(--gold); border-radius: 4px; color: #f5e7d6; background: #21141e; box-shadow: 0 24px 100px #0009, inset 0 0 0 5px #bba98812; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
 .preview-dialog::-webkit-scrollbar, .media-thumbnails::-webkit-scrollbar { display: none; }
+/* Teleported media lives outside .home, so it needs its own native-drag guard. */
+.preview-dialog img, .preview-dialog video { -webkit-user-drag: none; -webkit-user-select: none; user-select: none; }
 .preview-dialog::backdrop { background: rgb(10 5 12 / 78%); backdrop-filter: blur(8px); }
 .preview-header { position: sticky; top: 0; z-index: 2; display: flex; align-items: start; justify-content: space-between; gap: 18px; padding: 20px 24px; border-bottom: 1px solid #bba98830; background: #21141ef5; }
 .preview-kind { margin: 0 0 6px; color: #c6ad99; font-size: .8125rem; line-height: 1.5; }
