@@ -1,0 +1,14 @@
+/* 月下黑色蕾丝扩展：透明纹样、固定黑色默认值，独立于旧金蕾丝变量。 */
+.yx-black-lace-band { width: 100%; height: var(--yx-black-lace-height,72px); background: var(--yx-black-lace-color,#100b0e); -webkit-mask: var(--yx-black-lace-image,url('./svg/black-lace-rose.svg')) left top / auto var(--yx-black-lace-height,72px) repeat-x; mask: var(--yx-black-lace-image,url('./svg/black-lace-rose.svg')) left top / auto var(--yx-black-lace-height,72px) repeat-x; pointer-events: none; }
+.yx-black-lace-letter { position: relative; isolation: isolate; padding: 60px 30px 96px; color: #30151d; background: var(--yx-black-lace-surface,#ecdbb9); border: 1px solid #100b0e; }
+.yx-black-lace-letter::before,.yx-black-lace-letter::after { content: ''; position: absolute; left: 0; right: 0; background: var(--yx-black-lace-color,#100b0e); pointer-events: none; }
+.yx-black-lace-letter::before { top: 0; height: 32px; -webkit-mask: url('./svg/black-lace-micro.svg') left top / auto 32px repeat-x; mask: url('./svg/black-lace-micro.svg') left top / auto 32px repeat-x; }
+.yx-black-lace-letter::after { bottom: 0; height: 72px; -webkit-mask: url('./svg/black-lace-cathedral.svg') left top / auto 72px repeat-x; mask: url('./svg/black-lace-cathedral.svg') left top / auto 72px repeat-x; }
+.yx-black-lace-letter > :first-child { margin-top: 0; }
+.yx-black-lace-letter > :last-child { margin-bottom: 0; }
+.yx-black-lace-avatar { position: relative; isolation: isolate; width: min(100%,var(--yx-avatar-size,240px)); aspect-ratio: 1; display: grid; place-items: center; }
+.yx-black-lace-avatar::after { content: ''; position: absolute; z-index: 2; inset: 0; background: var(--yx-black-lace-color,#100b0e); -webkit-mask: url('./svg/black-lace-medallion.svg') center / contain no-repeat; mask: url('./svg/black-lace-medallion.svg') center / contain no-repeat; pointer-events: none; }
+.yx-black-lace-avatar__portrait { position: absolute; z-index: 1; top: 22%; left: 22%; width: 56%; height: 56%; border-radius: 50%; object-fit: cover; display: grid; place-items: center; margin: 0; background: var(--yx-avatar-surface,#38101f); color: #f5e7ce; overflow: hidden; }
+.yx-black-lace-ribbon { position: relative; isolation: isolate; display: grid; place-items: center; min-height: 96px; padding: 36px 24px; text-align: center; color: #f5e7ce; }
+.yx-black-lace-ribbon::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('./svg/black-lace-ribbon.svg') left center / auto 96px repeat-x; pointer-events: none; }
+.yx-black-lace-ribbon > span { background: #100b0e; padding: 3px 12px; font-family: var(--yx-serif,'Songti SC',SimSun,serif); letter-spacing: .15em; line-height: 1.5; }

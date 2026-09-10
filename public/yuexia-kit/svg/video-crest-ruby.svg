@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 194" fill="none">
+<defs><linearGradient id="ruby-crest-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".38" stop-color="var(--yx-gold,#bba988)"/><stop offset=".67" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset="1" stop-color="var(--yx-gold,#bba988)"/></linearGradient><radialGradient id="ruby-crest-pearl" cx=".34" cy=".26" r=".82"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".7" stop-color="var(--yx-gold,#bba988)"/><stop offset="1" stop-color="var(--yx-panel,#21171b)"/></radialGradient></defs><g stroke="var(--yx-ink,#100b0e)" stroke-width="2.6" stroke-linejoin="round">
+<path d="M67 55 46 29Q35 18 20 20q-6 20 4 38l16 12 6-8-13-18q11 0 23 18Z" fill="url(#ruby-crest-metal)"/>
+<path d="m93 55 21-26q11-11 26-9 6 20-4 38l-16 12-6-8 13-18q-11 0-23 18Z" fill="url(#ruby-crest-metal)"/>
+<path fill-rule="evenodd" d="m80 2 18 23-18 27-18-27Zm0 14-7 9 7 10 7-10Z" fill="url(#ruby-crest-metal)"/>
+<path d="m80 43 34 46-34 58-34-58Z" fill="url(#ruby-crest-metal)"/>
+<path d="m80 59 23 31-23 40-23-40Z" fill="var(--yx-ink,#100b0e)"/>
+<path d="m80 66 17 25-17 30-17-30Z" fill="var(--yx-red,#a51d32)"/>
+<path d="m80 66 17 25H80Z" fill="var(--yx-cream,#f5e7ce)" opacity=".3" stroke="none"/>
+<path d="m80 91 17 0-17 30Z" fill="var(--yx-ink,#100b0e)" opacity=".24" stroke="none"/>
+<path d="m38 105 13-8 16 38 13 17 13-17 16-38 13 8q-12 52-42 76-30-24-42-76Z" fill="url(#ruby-crest-metal)"/>
+<path d="m51 113 15 31 14 19 14-19 15-31" stroke="var(--yx-panel,#21171b)" stroke-width="3"/>
+</g>
+<path d="m80 152v25M56 60l11-8m26 0 11 8" stroke="var(--yx-cream,#f5e7ce)" stroke-width="1.2" opacity=".7"/>
+</svg>

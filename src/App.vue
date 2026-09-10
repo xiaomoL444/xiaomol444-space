@@ -23,6 +23,13 @@ const musicAwaitingInteraction = ref(false)
 const musicFailed = ref(false)
 const videoFailed = ref(false)
 const year = new Date().getFullYear()
+const decorationUrl = `${import.meta.env.BASE_URL}yuexia-kit/`
+const homeSections = [
+  { id: 'my-lover', title: '我的爱人', englishTitle: 'My Lover' },
+  { id: 'about-me', title: '关于我', englishTitle: 'About Me' },
+  { id: 'miliastra-wonderland', title: '千星奇域', englishTitle: 'miliastra world' },
+  { id: 'wish', title: '愿望', englishTitle: 'Wish' },
+]
 let motionPreference: MediaQueryList | undefined
 let musicRequest = 0
 let musicAutoplayEnabled = false
@@ -35,7 +42,7 @@ const { progress: loadingProgress, ready: assetsReady, unavailable: unavailableA
 
 function revealHome() {
   homeRevealed.value = true
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#261530')
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#160d15')
 }
 
 async function playBackground() {
@@ -180,11 +187,16 @@ onBeforeUnmount(() => {
       <div class="backdrop-shade" />
     </div>
 
+    <div class="page-ornaments" aria-hidden="true">
+      <span class="page-outline" />
+      <img v-for="corner in ['tl', 'tr', 'bl', 'br']" :key="corner" :class="['page-corner', `corner--${corner}`]" :src="`${decorationUrl}svg/corner-angular.svg`" alt="" draggable="false" />
+      <img class="petal petal--one" :src="`${decorationUrl}png/petal-red.png`" alt="" draggable="false" />
+      <img class="petal petal--two" :src="`${decorationUrl}png/petal-red.png`" alt="" draggable="false" />
+    </div>
+
     <header class="site-header">
       <div class="wordmark">
-        <svg class="sparkle" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 2c.8 6.5 3.5 9.2 10 10-6.5.8-9.2 3.5-10 10C11.2 15.5 8.5 12.8 2 12c6.5-.8 9.2-3.5 10-10Z" fill="currentColor" />
-        </svg>
+        <img class="wordmark-gem" :src="`${decorationUrl}svg/emblem-ruby.svg`" width="20" height="28" alt="" aria-hidden="true" />
         <span>xiaomol444<span class="wordmark-dot">.</span></span>
       </div>
       <span class="header-caption">PERSONAL SPACE</span>
@@ -193,15 +205,42 @@ onBeforeUnmount(() => {
     <main class="main-content">
       <section class="profile glass" data-glass aria-labelledby="profile-name">
         <div class="profile-shine" aria-hidden="true" />
+        <div class="profile-ornaments" aria-hidden="true">
+          <span class="profile-inset" />
+          <img class="profile-corner corner--tl" :src="`${decorationUrl}svg/corner-angular.svg`" alt="" draggable="false" />
+          <img class="profile-corner corner--br" :src="`${decorationUrl}svg/corner-angular.svg`" alt="" draggable="false" />
+          <img class="profile-crest" :src="`${decorationUrl}svg/emblem-ruby.svg`" width="26" height="36" alt="" draggable="false" />
+        </div>
         <div class="avatar-shell" @dragstart.prevent @contextmenu.prevent>
           <img class="avatar" :src="avatarUrl" alt="xiaomol444 的头像" width="128" height="128" fetchpriority="high" draggable="false" />
           <img class="avatar-frame" :src="avatarFrameUrl" alt="" aria-hidden="true" width="163" height="150" draggable="false" />
         </div>
-        <p class="eyebrow">HELLO, I'M</p>
         <h1 id="profile-name">xiaomol444<span>.</span></h1>
         <p class="welcome">愿你今晚得享安眠</p>
-        <div class="profile-detail" aria-hidden="true"><span />✧<span /></div>
+        <img class="profile-detail" :src="`${decorationUrl}svg/divider-central-star.svg`" width="280" height="28" alt="" aria-hidden="true" />
       </section>
+
+      <div class="home-sections">
+        <template v-for="(section, index) in homeSections" :key="section.id">
+          <section class="section-card glass" data-glass :aria-labelledby="`${section.id}-title`">
+            <div class="section-ornaments" aria-hidden="true">
+              <span class="section-inset" />
+              <span class="section-pattern" :style="{ backgroundImage: `url(${decorationUrl}svg/pattern-fine-diamonds.svg)` }" />
+              <img class="section-corner corner--tl" :src="`${decorationUrl}svg/corner-scroll.svg`" width="38" height="38" alt="" draggable="false" />
+              <img class="section-corner corner--br" :src="`${decorationUrl}svg/corner-scroll.svg`" width="38" height="38" alt="" draggable="false" />
+              <img class="section-gem" :src="`${decorationUrl}svg/emblem-ruby.svg`" width="20" height="28" alt="" draggable="false" />
+            </div>
+            <h2 :id="`${section.id}-title`" class="section-title">
+              <span class="section-title-chinese">{{ section.title }}</span>
+              <span class="section-title-separator" aria-hidden="true" />
+              <span class="section-title-english" lang="en">{{ section.englishTitle }}</span>
+            </h2>
+          </section>
+          <div v-if="index < homeSections.length - 1" class="section-divider" aria-hidden="true">
+            <img :src="`${decorationUrl}svg/divider-diamond-chain.svg`" width="720" height="64" alt="" draggable="false" />
+          </div>
+        </template>
+      </div>
     </main>
 
     <footer class="site-footer">

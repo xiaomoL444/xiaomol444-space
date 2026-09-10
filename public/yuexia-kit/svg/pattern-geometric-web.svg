@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+
+<g stroke="var(--yx-gold,#bba988)" stroke-width=".6" opacity=".58">
+ <path d="M0 0 120 60 240 0M0 240l120-60 120 60M0 0l60 120L0 240M240 0l-60 120 60 120"/>
+ <path d="M120-60v120l60 60-60 60v120M-60 120H60l60-60 60 60h120"/>
+ <path d="m60 120 60 60 60-60M0 0l120 180L240 0M0 240 120 60l120 180" opacity=".35"/>
+ <path d="m0 0 60 120L0 240m240-240-60 120 60 120" stroke="var(--yx-red,#a51d32)"/>
+</g>
+<g fill="var(--yx-gold,#bba988)" opacity=".6"><circle cx="120" cy="60" r="1.3"/><circle cx="60" cy="120" r="1.3"/><circle cx="180" cy="120" r="1.3"/><circle cx="120" cy="180" r="1.3"/></g>
+</svg>

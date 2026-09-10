@@ -1,0 +1,22 @@
+[
+  {
+    "id": "black-lace-band", "name": "黑蕾丝横向平铺边", "category": "蕾丝", "source": "图 ⑥：黑蕾丝的玫瑰花带衍生", "use": "页眉、卡片上下沿、章节分隔",
+    "code": "<div class=\"yx-black-lace-band\" aria-hidden=\"true\"></div>",
+    "note": "加载 black-lace.css；默认近黑色，不继承旧金蕾丝配色。--yx-black-lace-height 可调花边高度，宽度自动平铺。"
+  },
+  {
+    "id": "black-lace-letter", "name": "黑蕾丝旧纸信笺", "category": "边框", "source": "图 ③ 的旧纸与图 ⑥ 黑蕾丝组合衍生", "use": "个人寄语、心愿、关于我",
+    "code": "<section class=\"yx-black-lace-letter\"><h3>月下的来信</h3><p>把想念，写成一封信。</p></section>",
+    "note": "上下不同蕾丝，内容高度自适应。默认旧纸底；用 --yx-black-lace-surface 改背景颜色。"
+  },
+  {
+    "id": "black-lace-avatar", "name": "黑蕾丝圆形头像容器", "category": "边框", "source": "图 ⑥ 蕾丝与月下胸饰结构衍生", "use": "头像、徽记、圆形小照片",
+    "code": "<div class=\"yx-black-lace-avatar\"><span class=\"yx-black-lace-avatar__portrait\">月</span></div>",
+    "note": "把 span 换成带同样类名的 img 并设置 src、alt 即可放头像；正圆窗口占宽度 56%，蕾丝叠层不拦截点击。"
+  },
+  {
+    "id": "black-lace-ribbon", "name": "双边黑蕾丝标题带", "category": "标签", "source": "图 ⑥ 黑蕾丝与月下黑缎带衍生", "use": "栏目标题、收藏分组、签名栏",
+    "code": "<div class=\"yx-black-lace-ribbon\"><span>月下私藏</span></div>",
+    "note": "上下黑蕾丝夹住黑色中心带，浅色文字。建议短标题；图案保持 96px 高横向重复。"
+  }
+]

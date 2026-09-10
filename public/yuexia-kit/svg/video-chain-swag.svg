@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" fill="none">
+<defs><linearGradient id="swag-chain-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".38" stop-color="var(--yx-gold,#bba988)"/><stop offset=".67" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset="1" stop-color="var(--yx-gold,#bba988)"/></linearGradient><radialGradient id="swag-chain-pearl" cx=".34" cy=".26" r=".82"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".7" stop-color="var(--yx-gold,#bba988)"/><stop offset="1" stop-color="var(--yx-panel,#21171b)"/></radialGradient></defs><g transform="translate(0 4)"><g stroke="var(--yx-ink,#100b0e)" stroke-width="1.4" stroke-linejoin="round">
+<path d="M10 8Q210 110 410 8" stroke="var(--yx-gold,#bba988)" stroke-width="1.6"/>
+<path d="m24 16 24 4 15 19-25-6Zm55 28 26-6 24 13-27 7Zm67 14 25-12 26 8-26 13Zm77-4 26-8 25 12-26 9Zm68-3 24-13 26 6-23 14Zm66-12 15-19 24-4-14 17Z" fill="url(#swag-chain-metal)"/>
+<g fill="var(--yx-cream,#f5e7ce)"><circle cx="10" cy="8" r="4.2"/><circle cx="70" cy="40" r="3.2"/><circle cx="136" cy="56" r="3.2"/><circle cx="210" cy="60" r="3.2"/><circle cx="284" cy="56" r="3.2"/><circle cx="350" cy="40" r="3.2"/><circle cx="410" cy="8" r="4.2"/></g></g></g>
+</svg>

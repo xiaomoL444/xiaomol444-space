@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 48" fill="none">
+
+<path d="M12 0v48" stroke="var(--yx-gold,#bba988)" stroke-width=".5" opacity=".24"/>
+<g fill="var(--yx-gold,#bba988)" opacity=".8">
+ <circle cx="12" cy="6" r="1.4"/><circle cx="12" cy="18" r="1.4"/>
+ <circle cx="12" cy="30" r="1.4"/><circle cx="12" cy="42" r="1.4"/>
+</g>
+</svg>

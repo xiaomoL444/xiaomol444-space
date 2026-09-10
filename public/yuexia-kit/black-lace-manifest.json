@@ -1,0 +1,76 @@
+{
+  "description": "6 款月下风格黑色原生 SVG 蕾丝；并非截图精确提取。",
+  "colorNotes": "默认 #100b0e；内联 SVG 可继承 --yx-lace，外部 img/background 使用内置默认色。透明底；头像框中心完全镂空。",
+  "assets": [
+    {
+      "id": "black-lace-micro",
+      "name": "黑蕾丝 · 微花窄边",
+      "category": "蕾丝",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-micro.svg",
+      "viewBox": "0 0 96 32",
+      "repeat": "repeat-x",
+      "tileSize": "96px 32px",
+      "use": "按钮下沿、窄标题条、纸张细边",
+      "note": "细环编织、小四瓣花与微珠环；建议高 24–40px。黑色透明底，参考风格重绘。"
+    },
+    {
+      "id": "black-lace-rose",
+      "name": "黑蕾丝 · 蔷薇卷叶花带",
+      "category": "蕾丝",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-rose.svg",
+      "viewBox": "0 0 160 74",
+      "repeat": "repeat-x",
+      "tileSize": "160px 74px",
+      "use": "个人简介、作品栏、旧纸分隔",
+      "note": "开放式折瓣玫瑰、双侧卷叶、小环花边；建议高 52–84px。黑色透明底，参考风格重绘。"
+    },
+    {
+      "id": "black-lace-cathedral",
+      "name": "黑蕾丝 · 尖拱网纱",
+      "category": "蕾丝",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-cathedral.svg",
+      "viewBox": "0 0 144 98",
+      "repeat": "repeat-x",
+      "tileSize": "144px 98px",
+      "use": "页尾、长卡片下沿、简介背景装饰",
+      "note": "哥特尖拱、三叶眼孔与细密网纱；建议高 64–110px。黑色透明底，参考风格重绘。"
+    },
+    {
+      "id": "black-lace-drop",
+      "name": "黑蕾丝 · 长短珠滴扇边",
+      "category": "蕾丝",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-drop.svg",
+      "viewBox": "0 0 160 112",
+      "repeat": "repeat-x",
+      "tileSize": "160px 112px",
+      "use": "封面下缘、章节开场、垂挂装饰",
+      "note": "四层开放扇边与交替长短珠链，留有较多透空；建议高 72–120px。黑色透明底，参考风格重绘。"
+    },
+    {
+      "id": "black-lace-ribbon",
+      "name": "黑蕾丝 · 双边镂空缎带",
+      "category": "蕾丝",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-ribbon.svg",
+      "viewBox": "0 0 160 96",
+      "repeat": "repeat-x",
+      "tileSize": "160px 96px",
+      "use": "书签、标题隔带、卡片腰线",
+      "note": "对称双边蕾丝包裹黑色缎带，中心菱形针孔为真实透明镂空；建议高 52–96px。黑色透明底，参考风格重绘。"
+    },
+    {
+      "id": "black-lace-medallion",
+      "name": "黑蕾丝 · 环眼花冠头像框",
+      "category": "边框",
+      "source": "图 ⑥：月下黑色蕾丝风格衍生",
+      "file": "black-lace-medallion.svg",
+      "viewBox": "0 0 320 320",
+      "use": "圆形头像、个人徽章、圆形相片",
+      "note": "24 瓣尖叶、卷线与珠环；中心 (160,160)，半径 102.5px 内完全透明，实际净空直径 205px。建议头像直径 ≤198px，黑色透明底，参考风格重绘。"
+    }
+  ]
+}

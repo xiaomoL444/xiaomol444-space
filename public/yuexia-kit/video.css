@@ -1,0 +1,25 @@
+/* 视频截图扩展。与 yuexia.css 一起使用，资源路径相对于本文件。 */
+.yx-theme { --yx-fabric: #381723; --yx-lace-color: var(--yx-gold); }
+.yx-video-lace-top,.yx-video-lace-bottom { width: 100%; pointer-events: none; background-color: var(--yx-lace-color,var(--yx-gold,#bba988)); }
+.yx-video-lace-top { height: 48px; -webkit-mask: url('./svg/video-lace-top.svg') left bottom / auto 48px repeat-x; mask: url('./svg/video-lace-top.svg') left bottom / auto 48px repeat-x; }
+.yx-video-lace-bottom { height: 54px; -webkit-mask: url('./svg/video-lace-bottom.svg') left bottom / auto 54px repeat-x; mask: url('./svg/video-lace-bottom.svg') left bottom / auto 54px repeat-x; }
+.yx-video-textile { background-color: var(--yx-fabric,#381723); background-image: url('./svg/video-pattern-woven.svg'),url('./svg/video-pattern-damask.svg'); background-size: 16px 16px,120px 120px; }
+.yx-video-lace-panel { position: relative; padding: 64px 28px 74px; background: radial-gradient(ellipse at center,#601f3244,transparent 80%),var(--yx-panel,#21171b); text-align: center; }
+.yx-video-lace-panel::before,.yx-video-lace-panel::after { content: ''; position: absolute; left: 0; right: 0; pointer-events: none; background: var(--yx-lace-color,var(--yx-gold,#bba988)); opacity: .8; }
+.yx-video-lace-panel::before { top: 0; height: 42px; -webkit-mask: url('./svg/video-lace-top.svg') left top / auto 42px repeat-x; mask: url('./svg/video-lace-top.svg') left top / auto 42px repeat-x; }
+.yx-video-lace-panel::after { bottom: 0; height: 48px; -webkit-mask: url('./svg/video-lace-bottom.svg') left bottom / auto 48px repeat-x; mask: url('./svg/video-lace-bottom.svg') left bottom / auto 48px repeat-x; }
+.yx-video-step-panel { position: relative; isolation: isolate; padding: 28px 36px; color: var(--yx-cream,#f5e7ce); background: var(--yx-gold,#bba988); clip-path: polygon(18px 0,calc(100% - 18px) 0,calc(100% - 18px) 16px,100% 16px,100% calc(100% - 16px),calc(100% - 18px) calc(100% - 16px),calc(100% - 18px) 100%,18px 100%,18px calc(100% - 16px),0 calc(100% - 16px),0 16px,18px 16px); }
+.yx-video-step-panel::before { content: ''; position: absolute; z-index: -2; inset: 3px; background: #55454a; clip-path: inherit; pointer-events: none; }
+.yx-video-step-panel::after { content: ''; position: absolute; z-index: -1; inset: 6px; background: var(--yx-panel,#21171b); clip-path: inherit; pointer-events: none; }
+.yx-video-hanging-card { --yx-chain-height: 55px; position: relative; padding-top: var(--yx-chain-height); }
+.yx-video-hanging-card::before,.yx-video-hanging-card::after { content: ''; position: absolute; top: 0; width: 18px; height: calc(var(--yx-chain-height) + 10px); background: url('./svg/video-chain-vertical.svg') center top / 18px auto repeat-y; pointer-events: none; }
+.yx-video-hanging-card::before { left: 16%; }
+.yx-video-hanging-card::after { right: 16%; }
+.yx-video-stage { position: relative; isolation: isolate; width: 100%; aspect-ratio: var(--yx-stage-ratio,1000 / 720); }
+.yx-video-stage__frame { position: absolute; z-index: 2; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+.yx-video-stage__window { position: absolute; z-index: 1; left: var(--yx-window-x,12.8%); top: var(--yx-window-y,30.555556%); width: var(--yx-window-w,74.4%); height: var(--yx-window-h,58.055556%); display: grid; place-items: center; overflow: hidden; object-fit: cover; margin: 0; }
+.yx-video-stage__window > img,.yx-video-stage__window > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.yx-video-crest-heading { display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; padding-top: 72px; margin: 0; font-family: var(--yx-serif); font-size: 1.5rem; color: var(--yx-gold-light); }
+.yx-video-crest-heading::before { content: ''; position: absolute; top: 0; left: calc(50% - 25px); width: 50px; height: 66px; background: url('./svg/video-crest-ruby.svg') center / contain no-repeat; pointer-events: none; }
+.yx-video-crest-heading > span { display: flex; align-items: center; gap: 16px; }
+.yx-video-crest-heading > span::before,.yx-video-crest-heading > span::after { content: ''; width: 35px; height: 1px; background: var(--yx-gold); opacity: .6; }

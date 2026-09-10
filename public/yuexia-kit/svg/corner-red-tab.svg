@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 72" fill="none">
+
+<path d="M4 12h120v33l-23 23H4Z" fill="var(--yx-deep-red,#58121d)"/>
+<path d="M4 12h120v33l-23 23H4Z" stroke="var(--yx-red,#a51d32)" stroke-width="1.2"/>
+<path d="M9 17h110v24l-22 22H9Z" fill="var(--yx-red,#a51d32)" opacity=".65"/>
+<path d="m102 67 21-21v21Z" fill="var(--yx-red,#a51d32)"/>
+<path d="M11 22h77m-77 4h51" stroke="var(--yx-gold,#bba988)" stroke-width=".7" opacity=".4"/>
+<path d="m101 10 12-6 7 6" stroke="var(--yx-gold,#bba988)" stroke-width=".75" opacity=".6"/>
+</svg>

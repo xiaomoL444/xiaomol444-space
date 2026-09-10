@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 200" fill="none">
+<defs><linearGradient id="vertical-chain-metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".38" stop-color="var(--yx-gold,#bba988)"/><stop offset=".67" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset="1" stop-color="var(--yx-gold,#bba988)"/></linearGradient><radialGradient id="vertical-chain-pearl" cx=".34" cy=".26" r=".82"><stop offset="0" stop-color="var(--yx-cream,#f5e7ce)"/><stop offset=".7" stop-color="var(--yx-gold,#bba988)"/><stop offset="1" stop-color="var(--yx-panel,#21171b)"/></radialGradient></defs>
+<path d="M22 0v200" stroke="var(--yx-ink,#100b0e)" stroke-width="4"/>
+<path d="M22 0v200" stroke="var(--yx-gold,#bba988)" stroke-width="2"/>
+<path d="m22 40 8 61-8 59-8-59Z" fill="url(#vertical-chain-metal)" stroke="var(--yx-ink,#100b0e)" stroke-width="1.4"/>
+<path d="M22 44v111" stroke="var(--yx-cream,#f5e7ce)" stroke-width="1.1" opacity=".58"/>
+<g fill="url(#vertical-chain-pearl)" stroke="var(--yx-gold,#bba988)" stroke-width="1">
+<circle cx="22" cy="0" r="5.5"/><circle cx="22" cy="20" r="6"/><circle cx="22" cy="37" r="4.8"/>
+<circle cx="22" cy="163" r="4.8"/><circle cx="22" cy="180" r="6"/><circle cx="22" cy="200" r="5.5"/>
+</g>
+</svg>

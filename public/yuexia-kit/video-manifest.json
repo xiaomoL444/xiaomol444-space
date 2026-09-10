@@ -1,0 +1,201 @@
+{
+  "title": "图 ⑥ · 视频截图扩展",
+  "source": "用户提供的视频截图 codex-clipboard-c90bdf10-2072-4147-a0a7-ce3448793a39.png",
+  "description": "参考重绘与月下风格适配；透明 SVG，无人物、字幕或平台水印。",
+  "assets": [
+    {
+      "id": "video-lace-top",
+      "name": "卷叶编织滴坠蕾丝",
+      "category": "蕾丝",
+      "source": "图 ⑥：视频截图上边多层黑蕾丝",
+      "use": "页首、封面底缘、卡片上沿；向下垂落",
+      "file": "video-lace-top.svg",
+      "viewBox": "0 0 120 64",
+      "repeat": "repeat-x",
+      "tileSize": "120px 64px",
+      "note": "上段卷叶花带＋双道编织环眼＋交替长短小滴坠。建议显示高 40–64px。"
+    },
+    {
+      "id": "video-lace-bottom",
+      "name": "扇面尖塔冠蕾丝",
+      "category": "蕾丝",
+      "source": "图 ⑥：视频截图下边向上花边",
+      "use": "页尾、简介面板下缘、悬浮底栏",
+      "file": "video-lace-bottom.svg",
+      "viewBox": "0 0 120 70",
+      "repeat": "repeat-x",
+      "tileSize": "120px 70px",
+      "note": "扇面放射眼孔与窄长尖拱交错，保留视频里的高低尖顶。建议显示高 40–70px。"
+    },
+    {
+      "id": "video-lace-scallop",
+      "name": "环眼扇贝垂边",
+      "category": "蕾丝",
+      "source": "图 ⑥：视频截图蕾丝结构的月下适配",
+      "use": "标题下沿、信笺边、半透明面板",
+      "file": "video-lace-scallop.svg",
+      "viewBox": "0 0 120 64",
+      "repeat": "repeat-x",
+      "tileSize": "120px 64px",
+      "note": "双层扇贝、放射细线、环眼与泪滴；属于风格衍生，建议显示高 36–64px。"
+    },
+    {
+      "id": "video-lace-corner",
+      "name": "卷花环眼蕾丝角",
+      "category": "角花",
+      "source": "图 ⑥：视频截图上下蕾丝的转角适配",
+      "use": "相片、个人档案、引言卡的四角；旋转 90°/180°/270°复用",
+      "file": "video-lace-corner.svg",
+      "viewBox": "0 0 148 148",
+      "note": "透明 L 形，不平铺；对角卷花连接双边扇贝眼孔。建议宽 96–148px。"
+    },
+    {
+      "id": "video-pattern-damask",
+      "name": "卷叶几何团花织锦",
+      "category": "纹理",
+      "source": "图 ⑥：视频截图粉色织物的暗花与团花语汇",
+      "use": "暗红、灰粉或黑色面板的低对比底纹",
+      "file": "video-pattern-damask.svg",
+      "viewBox": "0 0 120 120",
+      "repeat": "repeat",
+      "tileSize": "120px 120px",
+      "note": "对称团花参考重绘；建议以 0.2–0.5 层透明度叠加。"
+    },
+    {
+      "id": "video-pattern-woven",
+      "name": "细十字织物纹",
+      "category": "纹理",
+      "source": "图 ⑥：视频截图底布细织纹",
+      "use": "卡片、背景、标题带的质感叠层",
+      "file": "video-pattern-woven.svg",
+      "viewBox": "0 0 32 32",
+      "repeat": "repeat",
+      "tileSize": "32px 32px",
+      "note": "微小十字线和疏密经纬，无底色，内置低对比透明度。"
+    },
+    {
+      "id": "video-pattern-diamond-pin",
+      "name": "边栏菱点星格纹",
+      "category": "纹理",
+      "source": "图 ⑥：视频截图左右窄边栏",
+      "use": "主页两侧细长边栏、竖向分隔带",
+      "file": "video-pattern-diamond-pin.svg",
+      "viewBox": "0 0 80 160",
+      "repeat": "repeat",
+      "tileSize": "80px 160px",
+      "note": "细长菱格、小菱点和八角花；默认旧金，可改 --yx-gold。"
+    },
+    {
+      "id": "video-lace-gold",
+      "name": "旧金赤滴双层蕾丝",
+      "category": "蕾丝",
+      "source": "图 ⑥：视频截图蕾丝结构的月下旧金适配",
+      "use": "黑底个人主页、暗红卡片、金色主标题的下沿",
+      "file": "video-lace-gold.svg",
+      "viewBox": "0 0 120 56",
+      "repeat": "repeat-x",
+      "tileSize": "120px 56px",
+      "note": "旧金细线＋暗红编织和滴坠；属于风格衍生，建议显示高 36–56px。"
+    },
+    {
+      "id": "video-frame-stage",
+      "name": "山墙台阶金属舞台框",
+      "category": "边框",
+      "source": "图 ⑥：中央视频框的三角山墙顶、台阶外轮廓、厚金边与圆铆钉",
+      "use": "横向主视觉、视频容器、首页作品展示框",
+      "file": "video-frame-stage.svg",
+      "viewBox": "0 0 1000 720",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。",
+      "windowRect": {
+        "x": 128,
+        "y": 220,
+        "width": 744,
+        "height": 418
+      }
+    },
+    {
+      "id": "video-frame-step",
+      "name": "简洁台阶金属横框",
+      "category": "边框",
+      "source": "图 ⑥：视频框左右凸出台阶及下部矩形框体",
+      "use": "作品缩略图、横向相册、视频卡片",
+      "file": "video-frame-step.svg",
+      "viewBox": "0 0 1000 600",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。",
+      "windowRect": {
+        "x": 118,
+        "y": 83,
+        "width": 764,
+        "height": 434
+      }
+    },
+    {
+      "id": "video-frame-portrait",
+      "name": "竖向头像台阶框",
+      "category": "边框",
+      "source": "图 ⑥：中央台阶画框结构，适配为竖向头像比例",
+      "use": "竖版头像、角色收藏、个人档案相框",
+      "file": "video-frame-portrait.svg",
+      "viewBox": "0 0 520 730",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。",
+      "windowRect": {
+        "x": 114,
+        "y": 202,
+        "width": 292,
+        "height": 442
+      }
+    },
+    {
+      "id": "video-crest-ruby",
+      "name": "尖角金属红宝石扣",
+      "category": "纹章",
+      "source": "图 ⑥：山墙正中红宝石与对称旧金尖角金属扣",
+      "use": "页面顶部徽记、头像框顶饰、导航中心标识",
+      "file": "video-crest-ruby.svg",
+      "viewBox": "0 0 160 194",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。"
+    },
+    {
+      "id": "video-chain-vertical",
+      "name": "圆珠梭珠纵向挂链",
+      "category": "链饰",
+      "source": "图 ⑥：视频框后方两条圆珠与细长梭珠挂链",
+      "use": "页面侧边挂链、悬挂卡片、纵向分隔装饰",
+      "file": "video-chain-vertical.svg",
+      "viewBox": "0 0 44 200",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。",
+      "repeat": "repeat-y",
+      "tileSize": "44px 200px"
+    },
+    {
+      "id": "video-chain-swag",
+      "name": "菱片珠链垂饰",
+      "category": "链饰",
+      "source": "图 ⑥：三角山墙下方两侧弧垂菱片与小圆珠",
+      "use": "画框顶沿、页眉下缘、短句下方垂饰",
+      "file": "video-chain-swag.svg",
+      "viewBox": "0 0 420 80",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。"
+    },
+    {
+      "id": "video-stud-pearl",
+      "name": "圆形旧金铆钉",
+      "category": "纹章",
+      "source": "图 ⑥：视频框左右黑色框板上的四枚圆形金属铆钉",
+      "use": "边框固定点、栏目起点、装饰列表圆点",
+      "file": "video-stud-pearl.svg",
+      "viewBox": "0 0 64 64",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。"
+    },
+    {
+      "id": "video-side-star",
+      "name": "八芒花星菱形边栏饰",
+      "category": "纹章",
+      "source": "图 ⑥：两侧栏的八芒花星、菱形与斜向细线",
+      "use": "页面两侧竖饰、章节边缘、侧栏背景",
+      "file": "video-side-star.svg",
+      "viewBox": "0 0 140 440",
+      "note": "根据图 ⑥ 的几何结构及材质配色参考重绘；原生可编辑矢量，无截图内容或平台水印。"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" fill="none">
+
+<g stroke="var(--yx-gold,#bba988)" stroke-width=".7" opacity=".65">
+ <path d="M-48 0 0 32 48 0 96 32 144 0M-48 64 0 32 48 64 96 32 144 64M0-32 48 0 96-32M0 96l48-32 48 32"/>
+</g>
+<g fill="var(--yx-gold,#bba988)">
+ <path d="m48-5 2 3 3 2-3 2-2 3-2-3-3-2 3-2Zm0 64 2 3 3 2-3 2-2 3-2-3-3-2 3-2Zm-48-32 2 3 3 2-3 2-2 3-2-3-3-2 3-2Zm96 0 2 3 3 2-3 2-2 3-2-3-3-2 3-2Z"/>
+</g>
+</svg>

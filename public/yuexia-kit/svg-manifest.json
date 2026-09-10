@@ -1,0 +1,243 @@
+{
+  "title": "月下风格 · 几何矢量装饰",
+  "version": "1.0.0",
+  "description": "依据用户参考图中的线条、边框与几何语汇矢量重绘；不是原图精确抠取。透明背景，无文字、脚本、栅格图或外部资源。",
+  "colors": {
+    "--yx-gold": "#bba988",
+    "--yx-red": "#a51d32",
+    "--yx-deep-red": "#58121d"
+  },
+  "colorNote": "SVG 内联到 HTML 时，可通过宿主 CSS 自定义属性调色；作为 img 或 CSS url 引用时，需修改 SVG 内默认色值或对文件自身设置样式。",
+  "assets": [
+    {
+      "id": "divider-diamond-chain",
+      "name": "菱形链分隔线",
+      "category": "分隔线",
+      "source": "图 1：各段标题横向细线；图 3、5：页脚菱形饰带",
+      "use": "章节标题两侧、页脚上下分隔",
+      "file": "divider-diamond-chain.svg",
+      "viewBox": "0 0 720 64"
+    },
+    {
+      "id": "divider-central-star",
+      "name": "中央尖星分隔线",
+      "category": "分隔线",
+      "source": "图 2：标题旁闪光；图 4：正文上方尖星横线",
+      "use": "首页签名、短标题和引言两侧",
+      "file": "divider-central-star.svg",
+      "viewBox": "0 0 720 72"
+    },
+    {
+      "id": "divider-scrollwork",
+      "name": "对称卷草分隔线",
+      "category": "分隔线",
+      "source": "图 3、5：底部中央对称卷草花饰",
+      "use": "页脚、个人箴言、收藏栏分隔",
+      "file": "divider-scrollwork.svg",
+      "viewBox": "0 0 720 88"
+    },
+    {
+      "id": "divider-broken-spear",
+      "name": "断线尖矛分隔线",
+      "category": "分隔线",
+      "source": "图 1：章节装饰断线；图 5：头纱锐角轮廓",
+      "use": "全宽区块、项目分区、导航下边缘",
+      "file": "divider-broken-spear.svg",
+      "viewBox": "0 0 720 64"
+    },
+    {
+      "id": "frame-cut-double",
+      "name": "切角双线边框",
+      "category": "边框",
+      "source": "图 5：赤瞳、磨损等特写卡片边框",
+      "use": "项目卡片、图片卡片、介绍面板",
+      "file": "frame-cut-double.svg",
+      "viewBox": "0 0 360 280"
+    },
+    {
+      "id": "frame-pennant-shield",
+      "name": "下收尖盾旗边框",
+      "category": "边框",
+      "source": "图 1：时间、参与方式、奖励栏的下弧盾旗",
+      "use": "数据统计、里程碑、成就与标签",
+      "file": "frame-pennant-shield.svg",
+      "viewBox": "0 0 240 320"
+    },
+    {
+      "id": "frame-photo-corners",
+      "name": "四角三角相框",
+      "category": "边框",
+      "source": "图 5：头纱、磨损与武器特写相框",
+      "use": "头像、照片墙、相册封面",
+      "file": "frame-photo-corners.svg",
+      "viewBox": "0 0 360 280"
+    },
+    {
+      "id": "frame-fine-gold",
+      "name": "细金双矩形边框",
+      "category": "边框",
+      "source": "图 3：愿望纸页内外双细框；图 1：规则区域",
+      "use": "文章、摘录、愿望清单与长文区",
+      "file": "frame-fine-gold.svg",
+      "viewBox": "0 0 480 320"
+    },
+    {
+      "id": "corner-angular",
+      "name": "折线角花",
+      "category": "角花",
+      "source": "图 3、5：页脚两边折线角；图 5：相框切角",
+      "use": "卡片左上角，可旋转形成四角",
+      "file": "corner-angular.svg",
+      "viewBox": "0 0 112 112"
+    },
+    {
+      "id": "corner-scroll",
+      "name": "简化卷草角花",
+      "category": "角花",
+      "source": "图 3：愿望清单纸页四角卷草",
+      "use": "纸张边框、日记、签名卡四角",
+      "file": "corner-scroll.svg",
+      "viewBox": "0 0 112 112"
+    },
+    {
+      "id": "corner-red-tab",
+      "name": "红色切角片",
+      "category": "角标",
+      "source": "图 5：说明卡片右下红色切角与红底标题牌",
+      "use": "卡片右下角标、选中状态、标签底片",
+      "file": "corner-red-tab.svg",
+      "viewBox": "0 0 128 72"
+    },
+    {
+      "id": "pattern-fine-diamonds",
+      "name": "细菱格无缝纹理",
+      "category": "纹理",
+      "source": "图 3、5：页脚下方菱格饰带",
+      "use": "页脚、深色卡片背景，建议 0.12–0.3 透明度",
+      "file": "pattern-fine-diamonds.svg",
+      "viewBox": "0 0 96 64",
+      "repeat": "repeat",
+      "tileSize": "96px 64px"
+    },
+    {
+      "id": "pattern-bead-rail",
+      "name": "珠点竖线无缝纹理",
+      "category": "纹理",
+      "source": "图 3、5：画面右侧连续珠点边缘",
+      "use": "页面侧边缘、时间轴、滚动栏装饰",
+      "file": "pattern-bead-rail.svg",
+      "viewBox": "0 0 24 48",
+      "repeat": "repeat-y",
+      "tileSize": "24px 48px"
+    },
+    {
+      "id": "pattern-diamond-lace",
+      "name": "菱形蕾丝无缝纹理",
+      "category": "纹理",
+      "source": "图 5：头纱菱形纹与服装尖角蕾丝；图 3：下缘格纹",
+      "use": "横向边带、卡片底纹、浅金暗纹",
+      "file": "pattern-diamond-lace.svg",
+      "viewBox": "0 0 120 80",
+      "repeat": "repeat",
+      "tileSize": "120px 80px"
+    },
+    {
+      "id": "pattern-geometric-web",
+      "name": "线稿几何网无缝纹理",
+      "category": "纹理",
+      "source": "图 1：暗底长斜线；图 5：背景网状几何线",
+      "use": "整页暗背景、作品封面叠层，建议 0.05–0.18 透明度",
+      "file": "pattern-geometric-web.svg",
+      "viewBox": "0 0 240 240",
+      "repeat": "repeat",
+      "tileSize": "240px 240px"
+    },
+    {
+      "id": "emblem-ruby",
+      "name": "红宝石菱形纹章",
+      "category": "纹章",
+      "source": "图 5：耳坠、项链宝石与红色菱形项目符号",
+      "use": "项目符号、菜单选中状态、徽章",
+      "file": "emblem-ruby.svg",
+      "viewBox": "0 0 80 112"
+    },
+    {
+      "id": "emblem-star-cluster",
+      "name": "四芒星簇纹章",
+      "category": "纹章",
+      "source": "图 2：血月前亮点；图 5：头纱细长闪光",
+      "use": "标题附近、鼠标悬停亮点、头像边缘",
+      "file": "emblem-star-cluster.svg",
+      "viewBox": "0 0 112 112"
+    },
+    {
+      "id": "emblem-pointed-arch",
+      "name": "尖拱窗纹章",
+      "category": "纹章",
+      "source": "图 5：头纱中央尖拱与礼服纵向尖角结构",
+      "use": "栏目徽章、封面水印、竖向卡片装饰",
+      "file": "emblem-pointed-arch.svg",
+      "viewBox": "0 0 120 168"
+    },
+    {
+      "id": "doodle-heart",
+      "name": "红笔空心爱心",
+      "category": "手写小物",
+      "source": "图 3：愿望清单第一条右侧红笔爱心",
+      "use": "个人签名、喜欢按钮、收藏注记",
+      "file": "doodle-heart.svg",
+      "viewBox": "0 0 128 128",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    },
+    {
+      "id": "doodle-envelope",
+      "name": "红笔信封",
+      "category": "手写小物",
+      "source": "图 3：愿望清单第三条右侧信封涂鸦",
+      "use": "联系入口、留言、邮件链接",
+      "file": "doodle-envelope.svg",
+      "viewBox": "0 0 128 128",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    },
+    {
+      "id": "doodle-cake",
+      "name": "红笔三烛蛋糕",
+      "category": "手写小物",
+      "source": "图 3：愿望清单生日蛋糕旁的红笔小图",
+      "use": "生日、周年纪念、时间轴纪念日",
+      "file": "doodle-cake.svg",
+      "viewBox": "0 0 128 128",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    },
+    {
+      "id": "doodle-sleep",
+      "name": "红笔三枚睡意符号",
+      "category": "手写小物",
+      "source": "图 3：草地入睡文字后方的红笔 zzz",
+      "use": "休息状态、夜间模式、小标题注脚",
+      "file": "doodle-sleep.svg",
+      "viewBox": "0 0 160 104",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    },
+    {
+      "id": "doodle-circle",
+      "name": "红笔不闭合圈注",
+      "category": "手写小物",
+      "source": "图 3：清单最后一行“再也没有离别”附近的圈注",
+      "use": "重点短语、数字或愿望条目强调",
+      "file": "doodle-circle.svg",
+      "viewBox": "0 0 240 100",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    },
+    {
+      "id": "doodle-checkbox",
+      "name": "红笔微斜复选框",
+      "category": "手写小物",
+      "source": "图 3：各行愿望左侧空心方框（沿用红笔强调色）",
+      "use": "愿望清单、待办项、可勾选列表",
+      "file": "doodle-checkbox.svg",
+      "viewBox": "0 0 128 128",
+      "note": "依据图 3 红笔小图的风格矢量重绘，不是原图精确抠取。"
+    }
+  ]
+}

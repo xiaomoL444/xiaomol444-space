@@ -1,0 +1,93 @@
+/* 月下装饰素材库 · 参考图风格重绘。只影响 yx- 前缀类。
+ * 将本目录连同 svg/ 一起保留；仅在 .yx-theme 内声明变量。
+ * 字体为候选栈，未打包字体文件，不保证设备安装了候选字体。
+ */
+.yx-theme {
+  --yx-ink: #100b0e;
+  --yx-panel: #21171b;
+  --yx-wine: #38101f;
+  --yx-deep-red: #58121d;
+  --yx-red: #a51d32;
+  --yx-scarlet: #e34243;
+  --yx-gold: #bba988;
+  --yx-gold-light: #f5d7a1;
+  --yx-cream: #f5e7ce;
+  --yx-paper: #ecdbb9;
+  --yx-silver: #dfdce9;
+  --yx-muted: #b5a4a1;
+  --yx-serif: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --yx-hand: 'LXGW WenKai', 'Kaiti SC', 'KaiTi', cursive;
+  --yx-latin: 'Cinzel Decorative', 'Palatino Linotype', Georgia, serif;
+  --yx-gothic: 'UnifrakturMaguntia', 'Old English Text MT', Georgia, serif;
+  color: var(--yx-cream);
+}
+.yx-title-gold {
+  font-family: var(--yx-serif); font-weight: 900; line-height: 1.25;
+  color: var(--yx-gold-light); letter-spacing: .04em;
+  background: linear-gradient(180deg, #fff8df 8%, var(--yx-gold-light) 48%, #c88956 86%, #f7deaf);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 0 #341018) drop-shadow(0 0 12px #a51d3240);
+}
+.yx-title-outline {
+  font-family: var(--yx-serif); font-weight: 900; line-height: 1.3;
+  color: var(--yx-cream); -webkit-text-stroke: 3px var(--yx-ink); paint-order: stroke fill;
+  text-shadow: 2px 3px 0 var(--yx-deep-red);
+}
+.yx-title-shadow { font-family: var(--yx-serif); font-weight: 900; color: var(--yx-cream); text-shadow: 3px 3px 0 var(--yx-red), 5px 5px 0 var(--yx-ink); }
+.yx-latin-caps { font-family: var(--yx-latin); letter-spacing: .25em; text-transform: uppercase; line-height: 1.6; color: var(--yx-gold); }
+.yx-latin-gothic { font-family: var(--yx-gothic); color: var(--yx-gold); line-height: 1.4; }
+.yx-handwriting { font-family: var(--yx-hand); letter-spacing: .08em; line-height: 1.9; }
+.yx-vertical-note { writing-mode: vertical-rl; font-family: var(--yx-serif); line-height: 1.8; letter-spacing: .16em; border-inline-start: 1px solid var(--yx-gold); padding-inline-start: .6em; }
+.yx-frame { position: relative; padding: 1.6rem; border: 1px solid var(--yx-gold); background: var(--yx-panel); }
+.yx-frame::before { content: ''; position: absolute; inset: 6px; border: 1px solid color-mix(in srgb, var(--yx-gold) 38%, transparent); pointer-events: none; }
+.yx-frame-red { position: relative; padding: 1.4rem; border: 2px solid var(--yx-deep-red); background: var(--yx-ink); }
+.yx-frame-red::after { content: ''; position: absolute; right: 0; bottom: 0; width: 24px; height: 24px; background: var(--yx-red); clip-path: polygon(100% 0, 100% 100%, 0 100%); pointer-events: none; }
+.yx-frame-cut { position: relative; padding: 1.5rem; isolation: isolate; background: var(--yx-gold); clip-path: polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px); }
+.yx-frame-cut::before { content: ''; position: absolute; inset: 1px; background: var(--yx-panel); clip-path: inherit; z-index: -1; }
+.yx-frame-photo { position: relative; padding: 1.4rem; border: 1px solid var(--yx-gold); background: var(--yx-panel); }
+.yx-frame-photo::before { content: ''; position: absolute; inset: 9px; border: 1px solid #bba98866; pointer-events: none; }
+.yx-frame-photo::after { content: ''; position: absolute; inset: 7px; pointer-events: none; background: linear-gradient(135deg,var(--yx-gold) 0 8px,transparent 9px) top left,linear-gradient(-135deg,var(--yx-gold) 0 8px,transparent 9px) top right,linear-gradient(45deg,var(--yx-gold) 0 8px,transparent 9px) bottom left,linear-gradient(-45deg,var(--yx-gold) 0 8px,transparent 9px) bottom right; background-size: 15px 15px; background-repeat: no-repeat; }
+.yx-paper { color: #3c2c26; background: radial-gradient(ellipse at 8% 12%,#98755226,transparent 45%),radial-gradient(ellipse at 92% 95%,#8864432b,transparent 40%),var(--yx-paper); box-shadow: inset 0 0 28px #6f503a30,0 10px 25px #0003; padding: 1.4rem; }
+.yx-paper-ruled { color: #3c2c26; line-height: 2rem; padding: 1rem 1.3rem; background: repeating-linear-gradient(transparent 0 31px,#8d745b66 31px 32px) 0 1rem / 100% 2rem,var(--yx-paper); font-family: var(--yx-hand); }
+.yx-paper-fold { position: relative; padding: 1.4rem; color: #3c2c26; background: linear-gradient(90deg,transparent 48%,#8263471a 50%,#fff7df66 50.4%,transparent 55%),linear-gradient(175deg,transparent 49%,#896b4922 50%,#fff4d055 50.6%,transparent 53%),var(--yx-paper); }
+.yx-paper-fold::after { content: ''; position: absolute; bottom: 0; left: 0; width: 35px; height: 35px; background: linear-gradient(45deg,#624b3266, #fff2d1 49%, transparent 51%); pointer-events: none; }
+.yx-paper-torn { padding: 1.5rem; color: #3c2c26; background: var(--yx-paper); clip-path: polygon(0 2%,5% 1%,9% 3%,15% 0,21% 2%,28% 1%,35% 2%,43% 0,50% 2%,57% 1%,64% 3%,72% 1%,80% 2%,88% 0,94% 2%,100% 1%,99% 98%,93% 100%,85% 98%,77% 100%,69% 99%,61% 97%,53% 100%,45% 99%,38% 100%,30% 98%,22% 99%,15% 98%,8% 100%,1% 98%); }
+.yx-label-ribbon { display: inline-block; color: var(--yx-cream); font-family: var(--yx-serif); padding: .3em 1.4em .4em .8em; background: linear-gradient(100deg,var(--yx-red),var(--yx-deep-red)); clip-path: polygon(0 0,100% 0,100% 65%,85% 100%,0 100%); border-block: 1px solid #c5836355; }
+.yx-label-archive { display: inline-flex; align-items: center; gap: .4em; color: var(--yx-cream); font-family: var(--yx-serif); background: linear-gradient(90deg,var(--yx-deep-red),transparent); padding: .1em 1em .1em .35em; }
+.yx-label-archive b { color: var(--yx-red); font-size: 2.8em; line-height: 1; font-weight: 400; }
+.yx-label-outline { display: inline-block; border: 1px solid var(--yx-gold); padding: .4em 1em; color: var(--yx-gold); letter-spacing: .12em; }
+.yx-stamp { display: inline-block; padding: .3em .7em; color: var(--yx-red); border: 3px double currentColor; letter-spacing: .16em; transform: rotate(-7deg); font-family: var(--yx-serif); }
+.yx-gem-list { padding: 0; margin: 0; list-style: none; }
+.yx-gem-list li { position: relative; padding-inline-start: 1.2em; line-height: 1.8; }
+.yx-gem-list li::before { content: ''; position: absolute; left: 0; top: .7em; width: .45em; height: .3em; border: 1px solid var(--yx-gold); background: var(--yx-red); transform: rotate(-35deg) skew(18deg); }
+.yx-dotted-spine { border-inline-end: 3px dotted #bba98888; padding: 1rem 1.2rem; }
+.yx-double-rule { border: 0; height: 5px; width: 100%; background: linear-gradient(var(--yx-gold),var(--yx-gold)) 0 0/100% 1px no-repeat,linear-gradient(90deg,transparent,#bba98866,transparent) 0 4px/100% 1px no-repeat; }
+.yx-line-caption { display: flex; align-items: center; gap: 1rem; font-family: var(--yx-serif); text-align: center; }
+.yx-line-caption::before,.yx-line-caption::after { content: ''; flex: 1; min-width: 20px; height: 1px; background: linear-gradient(90deg,transparent,var(--yx-gold)); }
+.yx-line-caption::after { transform: rotate(180deg); }
+.yx-quote { border-inline: 1px solid var(--yx-gold); padding: .8rem 1.2rem; margin: 0; font-family: var(--yx-serif); text-align: center; line-height: 1.8; }
+.yx-checklist { list-style: none; padding: 0; font-family: var(--yx-hand); line-height: 2; }
+.yx-checklist li::before { content: '□'; margin-inline-end: .7em; }
+.yx-heart-note { color: var(--yx-red); display: inline-block; font-family: var(--yx-hand); font-size: 1.5em; transform: rotate(-12deg); border: 1px solid currentColor; border-radius: 46% 56% 48% 52%; padding: .05em .35em; }
+.yx-bg-moon { background: radial-gradient(circle at 72% 42%,#dd2738 0%,#9c142b 22%,#5a1021 23%,transparent 48%),var(--yx-ink); }
+.yx-bg-haze { background: radial-gradient(ellipse at 15% 90%,#a51d3290,transparent 58%),radial-gradient(ellipse at 95% 10%,#55142b,transparent 65%),var(--yx-ink); }
+.yx-bg-vignette { background: radial-gradient(ellipse at center,transparent 10%,#000b 100%),var(--yx-wine); }
+.yx-bg-veil { background: repeating-linear-gradient(123deg,transparent 0 35px,#f5566429 36px,transparent 37px 70px),linear-gradient(130deg,#a51d3288,#320b22aa); }
+.yx-bg-particles { background: radial-gradient(circle at 18% 24%,#f5d7a1aa 0 1px,transparent 2px),radial-gradient(circle at 72% 38%,#e34243 0 1px,transparent 3px),radial-gradient(circle at 40% 75%,#a51d32 0 2px,transparent 4px),radial-gradient(circle at 88% 82%,#f5d7a1aa 0 1px,transparent 2px),var(--yx-ink); background-size: 170px 150px; }
+.yx-bg-mesh { background-image: url('./svg/pattern-geometric-web.svg'); background-size: 240px; background-color: var(--yx-ink); }
+.yx-bg-lace { background-image: url('./svg/pattern-diamond-lace.svg'); background-size: 120px 80px; background-color: var(--yx-ink); }
+.yx-avatar-halo { display: grid; place-items: center; width: 100px; aspect-ratio: 1; border: 1px solid var(--yx-gold); border-radius: 50%; box-shadow: 0 0 0 5px var(--yx-ink),0 0 0 6px #bba98855,0 0 32px #a51d3266; color: var(--yx-gold-light); background: var(--yx-wine); }
+.yx-hover-border { border: 1px solid #bba98855; color: var(--yx-cream); background: var(--yx-panel); padding: .8em 1.5em; cursor: pointer; transition: border-color .25s,box-shadow .25s; }
+.yx-hover-border:hover,.yx-hover-border:focus-visible { border-color: var(--yx-gold-light); box-shadow: inset 0 0 22px #bba98813,0 0 16px #a51d3233; outline: 2px solid var(--yx-gold); outline-offset: 4px; }
+.yx-motion-breathe { animation: yx-breathe 4s ease-in-out infinite; }
+.yx-motion-drift { animation: yx-drift 7s ease-in-out infinite; }
+@keyframes yx-breathe { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes yx-drift { 0%,100% { transform: translate(0,0) rotate(-8deg); } 50% { transform: translate(7px,-9px) rotate(8deg); } }
+.yx-decor { pointer-events: none; user-select: none; }
+.yx-corner { position: absolute; width: 48px; height: 48px; pointer-events: none; }
+.yx-corner--tl { top: 6px; left: 6px; }
+.yx-corner--tr { top: 6px; right: 6px; transform: rotate(90deg); }
+.yx-corner--br { bottom: 6px; right: 6px; transform: rotate(180deg); }
+.yx-corner--bl { bottom: 6px; left: 6px; transform: rotate(270deg); }
+@media (prefers-reduced-motion: reduce) { .yx-motion-breathe,.yx-motion-drift { animation: none; } .yx-hover-border { transition: none; } }
+@media (forced-colors: active) { .yx-title-gold { background: none; -webkit-text-fill-color: currentColor; filter: none; } }

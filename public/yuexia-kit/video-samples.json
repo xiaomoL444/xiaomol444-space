@@ -1,0 +1,50 @@
+[
+  {
+    "id": "video-lace-top", "name": "可换色顶部蕾丝", "category": "蕾丝",
+    "source": "图 ⑥：顶部卷花、编织线与下垂小滴坠", "use": "页眉、横幅上缘、章节顶部",
+    "code": "<div class=\"yx-video-lace-top\" style=\"--yx-lace-color:#bba988\" aria-hidden=\"true\"></div>",
+    "note": "CSS mask 让蕾丝继承 --yx-lace-color；横向平铺，不会把纹路拉宽。"
+  },
+  {
+    "id": "video-lace-bottom", "name": "可换色底部扇面蕾丝", "category": "蕾丝",
+    "source": "图 ⑥：底部朝上的扇面与尖拱花边", "use": "页脚、作品卡片底缘、相册底边",
+    "code": "<div class=\"yx-video-lace-bottom\" style=\"--yx-lace-color:#bba988\" aria-hidden=\"true\"></div>",
+    "note": "与顶部不同的扇面结构；用 --yx-lace-color 调色。"
+  },
+  {
+    "id": "video-lace-panel", "name": "上下蕾丝内容背板", "category": "边框",
+    "source": "图 ⑥：上下蕾丝夹住织物背景", "use": "介绍栏、寄语、相册分区",
+    "code": "<section class=\"yx-video-lace-panel\"><p class=\"yx-handwriting\">把想念，写成一封信。</p></section>",
+    "note": "内容高度自适应，蕾丝只平铺横向，顶部与底部为独立纹样。"
+  },
+  {
+    "id": "video-step-panel", "name": "自适应台阶金边卡", "category": "边框",
+    "source": "图 ⑥：中央画框两侧的台阶轮廓", "use": "个人介绍、项目卡、长短不一的文字内容",
+    "code": "<section class=\"yx-video-step-panel\"><h3 class=\"yx-title-gold\">月下档案</h3><p>记录那些值得珍藏的片刻。</p></section>",
+    "note": "CSS 重绘台阶结构；内容可增长。固定画框 SVG 更适合图片，文字容器优先用这一版。"
+  },
+  {
+    "id": "video-textile", "name": "暗酒红织物底纹", "category": "背景",
+    "source": "图 ⑥：低对比团花与细密布纹", "use": "主页区块底色、相册背板",
+    "code": "<div class=\"yx-video-textile\" style=\"min-height:180px\"></div>",
+    "note": "默认深酒红以融入原本月下主题；覆盖 --yx-fabric:#ad828d 可尝试截图里的旧玫瑰粉。"
+  },
+  {
+    "id": "video-hanging-card", "name": "双珠链悬挂牌", "category": "链饰",
+    "source": "图 ⑥：画框上方左右两条金色挂链", "use": "作品封面、导航牌、精选内容",
+    "code": "<div class=\"yx-video-hanging-card\"><div class=\"yx-video-step-panel\">月下的收藏</div></div>",
+    "note": "挂链为独立伪元素，不占用卡片正文；可通过 --yx-chain-height 改挂链长度。"
+  },
+  {
+    "id": "video-stage", "name": "镂空相框内容容器", "category": "边框",
+    "source": "图 ⑥：中央带山墙顶的影片展示框", "use": "视频封面、照片、作品缩略图",
+    "code": "<div class=\"yx-video-stage\"><div class=\"yx-video-stage__window yx-bg-haze\"><span class=\"yx-latin-caps\">My Collection</span></div><img class=\"yx-video-stage__frame\" src=\"/yuexia-kit/svg/video-frame-stage.svg\" alt=\"\" aria-hidden=\"true\"></div>",
+    "note": "固定宽高比，内容按 SVG 的 windowRect 精确定位。可把窗口 div 换成 img 或 video；画框不拦截交互。"
+  },
+  {
+    "id": "video-crest-heading", "name": "红宝石徽记标题", "category": "纹章",
+    "source": "图 ⑥：山墙最高处的金色红宝石扣饰", "use": "分区标题、站名上方、收藏栏目",
+    "code": "<h3 class=\"yx-video-crest-heading\"><span>月下私藏</span></h3>",
+    "note": "保留金边红宝石和左右细线，用少量徽记延续月下主题。"
+  }
+]

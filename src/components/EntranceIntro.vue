@@ -185,10 +185,6 @@ onBeforeUnmount(() => {
       />
       <div class="entrance-background-shade" />
     </div>
-    <div class="entrance-identity" aria-hidden="true">
-      <img :src="batUrl" alt="" width="2172" height="724" draggable="false" />
-      <span>xiaomol444<span class="entrance-dot">.</span></span>
-    </div>
     <div class="entrance-loading">
       <div class="entrance-loading-meta">
         <span role="status">{{ ready ? unavailable ? '部分资源暂不可用' : '准备进入' : '正在加载' }}</span>
@@ -208,9 +204,6 @@ onBeforeUnmount(() => {
 .entrance-background-image { position: absolute; inset: -36px; width: calc(100% + 72px); height: calc(100% + 72px); object-fit: cover; object-position: center; filter: blur(12px); opacity: 0; transition-property: opacity; transition-timing-function: ease-out; }
 .entrance-background-image.is-visible { opacity: 1; }
 .entrance-background-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(15 8 25 / 16%), rgb(24 9 30 / 12%) 42%, rgb(15 8 25 / 48%)); }
-.entrance-identity { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 22px; font-size: clamp(1.75rem, 5vw, 2.75rem); font-weight: 600; letter-spacing: -.045em; transition: opacity 250ms ease, translate 500ms ease; }
-.entrance-identity img { display: block; width: clamp(150px, 22vw, 230px); height: auto; filter: brightness(0) invert(1); }
-.entrance-dot { color: #efbce9; }
 .entrance-loading { position: absolute; bottom: max(64px, env(safe-area-inset-bottom)); left: 50%; width: min(440px, calc(100% - 64px)); transform: translateX(-50%); transition: opacity 220ms ease; }
 .entrance-loading-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 13px; font-size: .875rem; letter-spacing: .08em; }
 .entrance-percent { font-size: 1.25rem; font-variant-numeric: tabular-nums; letter-spacing: -.025em; }
@@ -218,11 +211,10 @@ onBeforeUnmount(() => {
 .entrance-track { height: 3px; overflow: hidden; background: rgb(255 249 255 / 24%); }
 .entrance-fill { width: 100%; height: 100%; background: #fff9ff; transform-origin: left; transition: transform 220ms ease; }
 .entrance-flight { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.is-flying .entrance-identity { opacity: 0; translate: 0 -12px; }
 .is-flying .entrance-loading { opacity: 0; }
 .is-revealed .entrance-backdrop { visibility: hidden; }
 .is-passing { pointer-events: none; }
 .is-fading { opacity: 0; transition: opacity 250ms ease; }
 @media (max-width: 600px) { .entrance-loading { bottom: max(44px, env(safe-area-inset-bottom)); } .entrance-background-image { object-position: 35% center; } }
-@media (prefers-reduced-motion: reduce) { .entrance-identity, .entrance-loading, .entrance-fill, .entrance-background-image { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .entrance-loading, .entrance-fill, .entrance-background-image { transition: none; } }
 </style>
