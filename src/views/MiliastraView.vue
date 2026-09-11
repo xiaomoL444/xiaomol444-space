@@ -17,6 +17,10 @@ const collections = [
   { id: 'stages', label: '我的奇域', english: 'WORLDS', state: stages },
   { id: 'assets', label: '资产中心', english: 'ASSETS', state: assets },
 ] as const
+const relatedLinks = [
+  { title: '奇域工具', url: 'https://tool.xiaomol444.xyz/', domain: 'tool.xiaomol444.xyz' },
+  { title: '对话模版 Wiki', url: 'https://wiki.xiaomol444.xyz/', domain: 'wiki.xiaomol444.xyz' },
+] as const
 const controllers: Partial<Record<Exhibit, AbortController>> = {}
 const numberFormatter = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 2 })
 const dateFormatter = new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Shanghai' })
@@ -158,6 +162,13 @@ onBeforeUnmount(() => { controllers.stages?.abort(); controllers.assets?.abort()
       </div>
       </section>
     </template>
+    <img class="collection-divider" :src="`${decorationUrl}svg/divider-scrollwork.svg`" width="720" height="88" alt="" aria-hidden="true" />
+    <nav class="related-links" aria-label="奇域相关网站">
+      <a v-for="link in relatedLinks" :key="link.url" class="related-link glass" data-glass :href="link.url" target="_blank" rel="noopener noreferrer" draggable="false" :aria-label="`${link.title}（在新标签页打开）`" @dragstart.prevent>
+        <span class="related-link-text"><span class="related-link-title">{{ link.title }}</span><span class="related-link-domain">{{ link.domain }}</span></span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </a>
+    </nav>
     <ExhibitPreview v-if="preview" :item="preview.item" :kind="preview.kind" @close="preview = null" />
   </div>
 </template>
@@ -184,6 +195,13 @@ onBeforeUnmount(() => { controllers.stages?.abort(); controllers.assets?.abort()
 .collection-updated { margin: 0; color: #c0ada9; font-size: .75rem; line-height: 1.7; }
 button:disabled { cursor: wait; opacity: .6; }
 .collection-divider { display: block; width: min(100%, 720px); height: auto; margin: -6px auto; flex-shrink: 0; opacity: .9; }
+.related-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-inline: 6px; }
+.related-link { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-width: 0; padding: 18px 22px; border-radius: 3px; color: var(--gold-light); text-decoration: none; -webkit-user-drag: none; transition: border-color 180ms ease, background-color 180ms ease; }
+.related-link:hover { border-color: #c2a489; background-color: #4b2532; }
+.related-link-text { display: grid; gap: 4px; min-width: 0; }
+.related-link-title { font-size: 1.25rem; line-height: 1.6; }
+.related-link-domain { color: #c0ada9; font: .8125rem/1.6 var(--exhibit-font); overflow-wrap: anywhere; }
+.related-link > svg { flex-shrink: 0; }
 .exhibit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
 .exhibit-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border-radius: 3px; background: linear-gradient(145deg, rgb(42 22 31 / 87%), rgb(23 14 23 / 86%)); box-shadow: 0 10px 24px -18px rgb(8 2 10 / 60%); text-shadow: none; transition: border-color 200ms ease; }
 .exhibit-card { cursor: pointer; }
@@ -231,6 +249,8 @@ button:disabled { cursor: wait; opacity: .6; }
   .collection-english { display: none; }
 }
 @media (max-width: 560px) {
+  .related-links { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .related-link { padding: 16px; }
   .wonderland-page { gap: 14px; padding-block: 26px 40px; }
   .exhibit-grid { grid-template-columns: minmax(0, 1fr); }
   .exhibition-header { padding-inline: 6px; }
