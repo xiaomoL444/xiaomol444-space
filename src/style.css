@@ -37,6 +37,8 @@
 }
 
 * { box-sizing: border-box; }
+html, body { scrollbar-width: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 body { margin: 0; min-width: 280px; }
 button { font: inherit; -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 6px; }

@@ -25,6 +25,7 @@ const decorationUrl = `${import.meta.env.BASE_URL}yuexia-kit/`
         <span class="section-title-english" lang="en">{{ englishTitle }}</span>
       </h1>
       <img class="detail-divider" :src="`${decorationUrl}svg/divider-diamond-chain.svg`" width="720" height="64" alt="" aria-hidden="true" />
+      <slot />
     </section>
   </div>
 </template>

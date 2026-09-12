@@ -174,8 +174,6 @@ onBeforeUnmount(() => { controllers.stages?.abort(); controllers.assets?.abort()
 </template>
 
 <style scoped>
-:global(html:has(.wonderland-page)), :global(body:has(.wonderland-page)) { scrollbar-width: none; }
-:global(html:has(.wonderland-page)::-webkit-scrollbar), :global(body:has(.wonderland-page)::-webkit-scrollbar) { display: none; }
 .wonderland-page { --exhibit-font: 'PingFang SC', 'Microsoft YaHei', sans-serif; max-width: 1440px; width: min(100%, 1440px); gap: 20px; padding: 32px 0 48px; }
 .exhibition-header { padding: 4px 12px 8px; }
 .exhibition-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }

@@ -10,7 +10,9 @@ export const routes: RouteRecordRaw[] = [
     name: section.id,
     component: section.id === 'miliastra-wonderland'
       ? () => import('../views/MiliastraView.vue')
-      : SectionView,
+      : section.id === 'about-me'
+        ? () => import('../views/AboutMeView.vue')
+        : SectionView,
     props: section.id === 'miliastra-wonderland'
       ? false
       : { title: section.title, englishTitle: section.englishTitle },
